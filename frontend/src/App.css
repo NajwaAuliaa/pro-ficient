@@ -1,0 +1,695 @@
+/* App.css */
+.App {
+  text-align: left;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.sidebar-override {
+  background-color: #1f2937 !important;
+  color: #ffffff !important;
+  border-color: #374151 !important;
+}
+
+.sidebar-button-override {
+  color: #ffffff !important;
+  background-color: transparent !important;
+}
+
+.sidebar-button-override:hover {
+  background-color: #374151 !important;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  color: var(--foreground);
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.2em;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  background: white;
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  margin-bottom: 0;
+}
+
+.tab {
+  flex: 1;
+  padding: 15px 20px;
+  background: #f8f9fa;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  border-bottom: 3px solid transparent;
+}
+
+.tab:hover {
+  background: #e9ecef;
+}
+
+.tab.active {
+  background: white;
+  border-bottom: 3px solid #007bff;
+  color: #007bff;
+}
+
+/* Tab Content */
+.tab-content {
+  background: white;
+  padding: 30px;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  min-height: 500px;
+}
+
+/* Form Elements */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* Buttons */
+.btn-primary {
+  background: #007bff;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #0056b3;
+}
+
+.btn-primary:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: #6c757d;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  margin-left: 10px;
+}
+
+.btn-secondary:hover {
+  background: #545b62;
+}
+
+.btn-quick {
+  background: #f8f9fa;
+  color: #495057;
+  padding: 8px 12px;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  margin: 4px;
+  transition: all 0.2s ease;
+}
+
+.btn-quick:hover {
+  background: #e9ecef;
+  border-color: #adb5bd;
+}
+
+/* Result Containers */
+.result-container {
+  margin-top: 20px;
+}
+
+.result-container label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.result-code,
+.result-text {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  padding: 15px;
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  white-space: pre-wrap;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* Chat Interface */
+.chat-container {
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+.chat-messages {
+  height: 400px;
+  overflow-y: auto;
+  padding: 15px;
+  background: #fafafa;
+}
+
+.message {
+  margin-bottom: 15px;
+  display: flex;
+}
+
+.message.user {
+  justify-content: flex-end;
+}
+
+.message.assistant {
+  justify-content: flex-start;
+}
+
+.message-content {
+  max-width: 70%;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.message.user .message-content {
+  background: #007bff;
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+
+.message.assistant .message-content {
+  background: white;
+  border: 1px solid #e9ecef;
+  border-bottom-left-radius: 4px;
+}
+
+.message-content pre {
+  margin: 0;
+  white-space: pre-wrap;
+  font-family: inherit;
+}
+
+/* Clean markdown styling for chat messages */
+.message-content .whitespace-pre-wrap {
+  white-space: pre-wrap;
+  font-family: inherit;
+}
+
+.message-content .whitespace-pre-wrap h1,
+.message-content .whitespace-pre-wrap h2,
+.message-content .whitespace-pre-wrap h3 {
+  font-size: 1.1em;
+  font-weight: 600;
+  margin: 8px 0 4px 0;
+  color: inherit;
+}
+
+.message-content .whitespace-pre-wrap strong {
+  font-weight: 600;
+}
+
+.message-content .whitespace-pre-wrap em {
+  font-style: italic;
+}
+
+.message-content .whitespace-pre-wrap ul,
+.message-content .whitespace-pre-wrap ol {
+  margin: 4px 0;
+  padding-left: 16px;
+}
+
+.message-content .whitespace-pre-wrap li {
+  margin: 2px 0;
+}
+
+.chat-input-container {
+  padding: 15px;
+  background: white;
+  border-top: 1px solid #e9ecef;
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.chat-input-container textarea {
+  flex: 1;
+  resize: vertical;
+  min-height: 60px;
+  max-height: 120px;
+}
+
+.chat-input-container button {
+  flex-shrink: 0;
+  height: 60px;
+}
+
+/* Todo Tab Specific Styles */
+.todo-tab h2 {
+  color: var(--foreground);
+  margin-bottom: 10px;
+}
+
+.login-section {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.login-status label {
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 5px;
+  display: block;
+}
+
+.status-text {
+  padding: 8px 12px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 14px;
+}
+
+.login-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.ai-info {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.ai-info h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.ai-info ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.ai-info li {
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.quick-actions {
+  margin: 20px 0;
+}
+
+.quick-actions h4 {
+  margin-bottom: 15px;
+  color: var(--foreground);
+}
+
+.quick-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.examples-section {
+  margin: 20px 0;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+}
+
+.examples-section summary {
+  padding: 15px 20px;
+  background: #f8f9fa;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 8px 8px 0 0;
+}
+
+.examples-section summary:hover {
+  background: #e9ecef;
+}
+
+.examples-grid {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.examples-column h4,
+.suggestions-column h4 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: var(--foreground);
+}
+
+.examples-list {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid #e9ecef;
+}
+
+.example-item {
+  padding: 5px 0;
+  border-bottom: 1px solid #e9ecef;
+  font-size: 14px;
+}
+
+.example-item:last-child {
+  border-bottom: none;
+}
+
+.suggestions-content {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid #e9ecef;
+}
+
+.suggestions-content pre {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+}
+
+/* Upload Tab Specific */
+.upload-tab p {
+  color: var(--muted-foreground);
+  margin-bottom: 20px;
+}
+
+/* Project Tab Specific */
+.project-tab p {
+  color: var(--muted-foreground);
+  margin-bottom: 20px;
+}
+
+/* RAG Chat Tab Specific */
+.rag-chat-tab p {
+  color: var(--muted-foreground);
+  margin-bottom: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+  
+  .tabs {
+    flex-direction: column;
+  }
+  
+  .tab {
+    border-bottom: 1px solid #dee2e6;
+    border-radius: 0;
+  }
+  
+  .tab.active {
+    border-bottom: 1px solid #007bff;
+    border-left: 3px solid #007bff;
+  }
+  
+  .login-section {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .login-buttons {
+    justify-content: center;
+  }
+  
+  .examples-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .message-content {
+    max-width: 85%;
+  }
+  
+  .chat-input-container {
+    flex-direction: column;
+  }
+  
+  .chat-input-container button {
+    height: auto;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8em;
+  }
+
+  .tab-content {
+    padding: 20px 15px;
+  }
+
+  .quick-buttons {
+    flex-direction: column;
+  }
+
+  .btn-quick {
+    text-align: left;
+    margin: 2px 0;
+  }
+}
+
+/* Dark mode support - use CSS variables instead of hardcoded colors */
+.card h3,
+.card label,
+.card .text-sm {
+  color: var(--foreground);
+}
+
+.card p {
+  color: var(--muted-foreground);
+}
+
+/* Ensure form labels are visible */
+label {
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+/* CardTitle specifically */
+.card h3[class*="text-2xl"] {
+  color: var(--foreground);
+}
+
+/* ========== MARKDOWN CONTENT STYLING ========== */
+.markdown-content {
+  @apply text-sm;
+  max-width: 100%;
+}
+
+/* ========== TABLE SPECIFIC STYLES ========== */
+.markdown-content table {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  table-layout: auto;
+}
+
+.markdown-content table td,
+.markdown-content table th {
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  vertical-align: top;
+}
+
+/* Handle br tags and line breaks in table cells */
+.markdown-content table td br {
+  content: "";
+  display: block;
+  margin: 0.25rem 0;
+}
+
+/* Ensure bullet points inside table cells are properly formatted */
+.markdown-content table td ul,
+.markdown-content table td ol {
+  margin: 0.5rem 0;
+  padding-left: 1.25rem;
+}
+
+.markdown-content table td li {
+  margin: 0.25rem 0;
+  line-height: 1.5;
+}
+
+/* Handle paragraphs inside table cells */
+.markdown-content table td p {
+  margin: 0.25rem 0;
+}
+
+.markdown-content table td p:first-child {
+  margin-top: 0;
+}
+
+.markdown-content table td p:last-child {
+  margin-bottom: 0;
+}
+
+/* ========== RESPONSIVE TABLE ========== */
+@media (max-width: 1024px) {
+  .markdown-content table {
+    font-size: 0.8125rem;
+  }
+  
+  .markdown-content table td,
+  .markdown-content table th {
+    padding: 0.625rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .markdown-content table {
+    font-size: 0.75rem;
+  }
+  
+  .markdown-content table td,
+  .markdown-content table th {
+    padding: 0.5rem;
+  }
+}
+
+/* ========== PRINT OPTIMIZATION ========== */
+@media print {
+  .markdown-content table {
+    page-break-inside: avoid;
+    font-size: 10pt;
+  }
+  
+  .markdown-content tr,
+  .markdown-content td,
+  .markdown-content th {
+    page-break-inside: avoid;
+  }
+  
+  .markdown-content thead {
+    display: table-header-group;
+  }
+  
+  .markdown-content tfoot {
+    display: table-footer-group;
+  }
+}
+
+/* ========== SCROLLBAR STYLING (Optional) ========== */
+.markdown-content ::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+.markdown-content ::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.markdown-content ::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.markdown-content ::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* ========== LIST STYLING ========== */
+.markdown-content ul ul,
+.markdown-content ol ul {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.markdown-content ol ol,
+.markdown-content ul ol {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ========== CODE BLOCK STYLING ========== */
+.markdown-content pre {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+}
+
+.markdown-content code {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* ========== BLOCKQUOTE STYLING ========== */
+.markdown-content blockquote p {
+  margin: 0;
+}
+
+/* ========== LINK STYLING ========== */
+.markdown-content a {
+  word-break: break-word;
+}
+
+/* ========== IMAGE STYLING ========== */
+.markdown-content img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

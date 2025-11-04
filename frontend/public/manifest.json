@@ -1,0 +1,20 @@
+{
+  "short_name": "AI Document Workflow",
+  "name": "AI Document Workflow",
+  "icons": [
+    {
+      "src": "softwareone.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "softwareone.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
