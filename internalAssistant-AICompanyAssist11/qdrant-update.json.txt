@@ -1,0 +1,25 @@
+{
+  "properties": {
+    "configuration": {
+      "ingress": {
+        "external": true,
+        "targetPort": 6333,
+        "transport": "auto"
+      }
+    },
+    "template": {
+      "containers": [
+        {
+          "name": "qdrant-app",
+          "image": "qdrant/qdrant:v1.15.4
+          "ports": [
+            {
+              "exposed": true,
+              "targetPort": 6333
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
