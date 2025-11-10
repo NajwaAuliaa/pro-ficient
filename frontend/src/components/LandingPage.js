@@ -134,8 +134,8 @@ const LandingPage = ({ onGetStarted }) => {
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <div className="flex items-center gap-2">
-              <Code className="h-6 w-6 text-foreground" />
-              <span className="font-medium">AI Document Workflow</span>
+              <img src="/logo_proficient.png" alt="Pro-Ficient" className="h-16 w-16" />
+              <span className="font-medium">Pro-Ficient</span>
             </div>
 
             {/* Theme Toggle */}
@@ -148,14 +148,11 @@ const LandingPage = ({ onGetStarted }) => {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="min-h-screen flex flex-col justify-center text-center px-4">
           <h1 className="text-4xl md:text-6xl font-semibold bg-gradient-to-r from-[#1a1a26] to-[#d3d3d3] bg-clip-text text-transparent tracking-tight">
-            Your AI Internal Assistant
+            PRO-FICIENT 
           </h1>
           <div className="max-w-4xl mx-auto space-y-4 mb-12">
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-              Transform the way your organization works with AI Document Workflow and Compliance.
-            </p>
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-              Automated contract review, faster client proposals, and instant access to internal knowledge.
+            <p className="text-2xl md:text-4xl text-muted-foreground leading-relaxed">
+              Seamless Intelligence for Limitless Productivity
             </p>
           </div>
 

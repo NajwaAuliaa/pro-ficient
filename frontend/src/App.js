@@ -197,10 +197,10 @@ function AppContent() {
         <main className="flex-1 flex flex-col overflow-hidden">
           <header className="border-b border-border bg-card px-6 py-4 flex items-center justify-between shadow-sm">
             <div className="flex items-center gap-3">
-              <img src={isDark ? "/SoftwareOneDarkmode.png" : "/softwareone.png"} alt="SoftwareOne" className={isDark ? "h-32" : "h-8"} />
+              <img src={isDark ? "/SoftwareOneDarkmode.png" : "/softwareone.png"} alt="SoftwareOne" className="h-8" />
               <div className="h-8 w-px bg-border"></div>
               <h1 className="text-xl font-semibold text-foreground mt-7">
-                AI Document Workflow
+                Pro-Ficient
               </h1>
             </div>
             <div className="flex items-center gap-3">

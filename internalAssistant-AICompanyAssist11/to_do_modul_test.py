@@ -585,6 +585,84 @@ def tool_search_tasks(query: str, user_id: str) -> str:
         return f"Error searching tasks: {str(e)}"
 
 # ====================
+# RAW TASK DATA RETRIEVAL (for LLM analysis with deadline info)
+# ====================
+
+def tool_get_all_tasks_json(user_id: str) -> str:
+    """Get ALL tasks as structured JSON with deadline details for LLM analysis.
+
+    Returns raw task data so LLM can answer deadline questions accurately.
+    Unlike tool_get_all_tasks which returns formatted text,
+    this returns JSON that LLM can parse and analyze deadline information.
+    """
+    try:
+        # First get all lists
+        lists_result = graph_api_request("/me/todo/lists", user_id=user_id)
+        lists = lists_result.get("value", [])
+
+        if not lists:
+            return json.dumps({"success": False, "message": "No To-Do lists found"})
+
+        all_tasks = []
+
+        for lst in lists:
+            list_id = lst.get("id")
+            list_name = lst.get("displayName", "Unnamed")
+
+            # Get tasks for this list
+            tasks_result = graph_api_request(f"/me/todo/lists/{list_id}/tasks", user_id=user_id)
+            tasks = tasks_result.get("value", [])
+
+            for task in tasks:
+                # Extract and structure deadline info
+                due_date = None
+                due_status = None
+
+                if task.get("dueDateTime"):
+                    try:
+                        due_date_str = task["dueDateTime"].get("dateTime", "")
+                        if due_date_str:
+                            due_date_obj = datetime.fromisoformat(due_date_str.replace('Z', '+00:00')).date()
+                            due_date = due_date_obj.isoformat()
+
+                            days_diff = (due_date_obj - datetime.now().date()).days
+                            if days_diff < 0:
+                                due_status = f"OVERDUE ({abs(days_diff)} days ago)"
+                            elif days_diff == 0:
+                                due_status = "DUE TODAY"
+                            elif days_diff == 1:
+                                due_status = "DUE TOMORROW"
+                            else:
+                                due_status = f"Due in {days_diff} days"
+                    except Exception as e:
+                        pass
+
+                task_obj = {
+                    "list_id": list_id,
+                    "list_name": list_name,
+                    "task_id": task.get("id"),
+                    "title": task.get("title", "Untitled"),
+                    "status": task.get("status", "notStarted"),
+                    "importance": task.get("importance", "normal"),
+                    "due_date": due_date,
+                    "due_status": due_status,
+                    "completed": task.get("status") == "completed"
+                }
+
+                all_tasks.append(task_obj)
+
+        result = {
+            "success": True,
+            "total_tasks": len(all_tasks),
+            "tasks": all_tasks
+        }
+
+        return json.dumps(result, indent=2)
+
+    except Exception as e:
+        return json.dumps({"success": False, "error": str(e)})
+
+# ====================
 # LANGCHAIN TOOLS SETUP
 # ====================
 
