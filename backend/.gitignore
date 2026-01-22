@@ -1,0 +1,12 @@
+.env
+env/
+__pycache__/
+*.pyc
+node_modules/
+.DS_Store
+*.log
+*.exe
+*.ipynb
+qdrant-update.json.txt
+package-lock.json
+package.json
