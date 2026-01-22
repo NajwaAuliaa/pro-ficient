@@ -484,12 +484,12 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 📞 Support
+<!-- ## 📞 Support
 
 For issues and questions:
 - Open an issue on GitHub
 - Contact: [your-email@example.com]
-- Documentation: [Wiki](https://github.com/yourusername/pro-ficient/wiki)
+- Documentation: [Wiki](https://github.com/yourusername/pro-ficient/wiki) -->
 
 ---
 
